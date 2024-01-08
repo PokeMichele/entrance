@@ -439,7 +439,7 @@ collections {
    }
 
    group { name: "entrance/user";
-      data.item: "items"  "adrielhernandez-cmyk-tux brunocb-tux-1-euro cisoun-tux-coup-de-soleil eliaden-tux-marin fcys14-tux-breton fcys14-tux-croco fcys14-tux-pompier fcys14-yoshi-tux m4r10-tux-crema mybob-calimetux overlord59-astro-tux overlord59-dj-tux-mix-platine overlord59-magic-tux overlord59-tux-pianiste touko-tux-pirate";
+      data.item: "items"  "adrielhernandez-cmyk-tux brunocb-tux-1-euro cisoun-tux-coup-de-soleil eliaden-tux-marin fcys14-tux-breton fcys14-tux-croco fcys14-tux-pompier fcys14-yoshi-tux fcys14-yoshi-tux m4r10-tux-crema mybob-calimetux overlord59-astro-tux overlord59-dj-tux-mix-platine overlord59-magic-tux overlord59-tux-pianiste touko-tux-pirate";
       parts {
          swallow {
             name: "entrance.icon";
@@ -480,6 +480,7 @@ collections {
    ADD_USER_ICON("fcys14-tux-croco")
    ADD_USER_ICON("fcys14-tux-pompier")
    ADD_USER_ICON("fcys14-yoshi-tux")
+   ADD_USER_ICON("freesvg-disk-tux")
    ADD_USER_ICON("m4r10-tux-crema")
    ADD_USER_ICON("mybob-calimetux")
    ADD_USER_ICON("overlord59-astro-tux")
