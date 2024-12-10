@@ -1,9 +1,10 @@
 /*
  * Default theme for Entrance
  * By Michael Bouchaud
- * Licence CC-By-Sa
+ * By William L Thomson Jr
+ * License CC-By-Sa
  * Photo by Philippe Caseiro
- * Licence CC-By-Sa
+ * License CC-By-Sa
  */
 
 #include "../../../src/bin/entrance_edje.h"
