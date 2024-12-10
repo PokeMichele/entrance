@@ -1,5 +1,5 @@
 # Hungarian translation for entrance
-# Copyright (C) 2017 Obsidian-Studios, Inc.
+# Copyright (C) 2025 William L Thomson Jr <w@wltjr.com>
 # This file is distributed under the same license as the entrance package.
 # Laszlo Kardos <echo bEBsYWNlc3ouYmxvZw== | base64 -d>, 2019
 #
