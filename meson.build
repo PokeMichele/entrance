@@ -4,7 +4,7 @@ project('entrance', 'c',
         license        : 'GPL-3.0',
         default_options: [ 'c_std=gnu99' ],
         meson_version  : '>= 0.40.0')
-base_url = 'https://github.com/Obsidian-StudiosInc/'
+base_url = 'https://github.com/wltjr/'
 
 # global arguments
 add_global_arguments('-W', language : 'c')
