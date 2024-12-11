@@ -1,0 +1,19 @@
+name: CI
+on:
+    push:
+        branches: [ main ]
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Check out repository
+            uses: actions/checkout@v4
+          - name: Run the build process inside Docker container
+            uses: addnab/docker-run-action@v3
+            with:
+                image: wltjr/docker-efl:latest
+                options: -v ${{ github.workspace }}:/tmp/entrance
+                run: |
+                    cd /tmp/entrance
+                    meson --prefix /usr ${OPTS} . build
+                    ninja -C build
