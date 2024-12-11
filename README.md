@@ -1,9 +1,7 @@
 # entrance - An EFL based display manager
-[![License](http://img.shields.io/badge/license-GPLv3-blue.svg?colorB=9977bb&style=plastic)](https://github.com/Obsidian-StudiosInc/entrance/blob/master/LICENSE)
-[![Build Status](https://img.shields.io/travis/Obsidian-StudiosInc/entrance/master.svg?colorA=9977bb&style=plastic)](https://travis-ci.org/Obsidian-StudiosInc/entrance)
-[![Build Status](https://img.shields.io/shippable/59415c1aa155af0700adbcb3/master.svg?colorA=9977bb&style=plastic)](https://app.shippable.com/projects/59415c1aa155af0700adbcb3/)
-[![Code Quality](https://img.shields.io/codacy/grade/5e7e4c749a3c4ceead9ba0b2c1ae2806.svg?colorA=9977bb&style=plastic)](https://app.codacy.com/app/Obsidian-StudioInc/entrance)
-[![Code Quality](https://sonarcloud.io/api/project_badges/measure?project=entrance&metric=alert_status)](https://sonarcloud.io/dashboard?id=entrance)
+[![License](http://img.shields.io/badge/license-GPLv3-blue.svg?colorB=9977bb&style=plastic)](https://github.com/wltjr/entrance/blob/master/LICENSE)
+![Build Status](https://github.com/wltjr/entrance/actions/workflows/docker_build.yml/badge.svg)
+[![Code Quality](https://sonarcloud.io/api/project_badges/measure?project=wltjr_entrance&metric=alert_status)](https://sonarcloud.io/dashboard?id=wltjr_entrance)
 
 This is a fork and current development version.
 It is ALIVE! IT WORKS! (for me™)
@@ -12,7 +10,7 @@ It is ALIVE! IT WORKS! (for me™)
 
 ## Known Issues
 - Settings UI is broken, hidden for now
-[Issue #6](https://github.com/Obsidian-StudiosInc/entrance/issues/6)
+[Issue #6](https://github.com/wltjr/entrance/issues/6)
 
 ## About
 Entrance is a Unix Display/Login Manager written in Enlightenment Foundation 
@@ -54,7 +52,7 @@ broken code. Rather than fix as is, we are looking to replace functionality
 with new code and finding different ways of accomplishing similar functionality.
 
 This generation is currently in development, and should be usable.
-Please open [issues](https://github.com/Obsidian-StudiosInc/entrance/issues) for any problems encountered. 
+Please open [issues](https://github.com/wltjr/entrance/issues) for any problems encountered. 
 
 ## Build
 Entrance presently uses meson build system, autotools has been dropped. 
