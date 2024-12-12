@@ -190,13 +190,9 @@ _entrance_session_run(struct passwd *pwd, const char *cmd, const char *cookie)
         if (-1 == remove(buf))
           PT("Error could not remove session log file");
 
-#ifdef HAVE_CONSOLEKIT
-        snprintf(buf, sizeof(buf), "ck-launch-session %s  %s > %s/.entrance_session.log 2>&1",
-                 entrance_config->command.session_login, cmd, pwd->pw_dir);
-#else
         snprintf(buf, sizeof(buf), "%s %s > %s/.entrance_session.log 2>&1",
                  entrance_config->command.session_login, cmd, pwd->pw_dir);
-#endif
+
         PT("Executing: %s --login -c %s ", pwd->pw_shell, buf);
         execle(pwd->pw_shell, pwd->pw_shell, "--login", "-c", buf, NULL, env);
         PT("The Xsessions are not launched :(");
