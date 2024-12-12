@@ -414,23 +414,6 @@ _signal_log(int sig EINA_UNUSED)
    _open_log();
 }
 
-static void
-_update_lock()
-{
-   FILE *f;
-   char buf[128];
-   f = fopen(entrance_config->lockfile, "w");
-   if(!f)
-     {
-       PT("Could not open lockfile");
-       return;
-     }
-   snprintf(buf, sizeof(buf), "%d", getpid());
-   if (!fwrite(buf, strlen(buf), 1, f))
-     PT("Could not update lockfile");
-   fclose(f);
-}
-
 Eina_Bool entrance_auto_login_enabled()
 {
   return(_entrance_auto_login);
