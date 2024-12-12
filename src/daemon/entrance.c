@@ -52,7 +52,6 @@ static const Ecore_Getopt options =
   "Entrance is a login manager, written using core efl libraries",
   EINA_TRUE,
   {
-    ECORE_GETOPT_STORE_TRUE('n', "nodaemon", "Do not daemonize."),
     ECORE_GETOPT_STORE_TRUE('x', "xephyr", "run under Xephyr."),
     ECORE_GETOPT_HELP ('h', "help"),
     ECORE_GETOPT_VERSION('V', "version"),
@@ -454,12 +453,10 @@ int
 main (int argc, char ** argv)
 {
    int args;
-   unsigned char nodaemon = 0;
    unsigned char quit_option = 0;
 
    Ecore_Getopt_Value values[] =
      {
-        ECORE_GETOPT_VALUE_BOOL(nodaemon),
         ECORE_GETOPT_VALUE_BOOL(_xephyr),
         ECORE_GETOPT_VALUE_BOOL(quit_option),
         ECORE_GETOPT_VALUE_BOOL(quit_option),
@@ -502,31 +499,12 @@ main (int argc, char ** argv)
         exit(1);
      }
 
-   if (_xephyr)
-     nodaemon = EINA_TRUE;
 
    _entrance_auto_login = entrance_config->autologin;
    entrance_display = strdup(entrance_config->command.xdisplay);
 
    if (!_xephyr && !_get_lock())
         exit(1);
-
-   if (!nodaemon && entrance_config->daemonize)
-     {
-        if (daemon(0, 1) == -1)
-          {
-             PT("Error on daemonize !");
-             entrance_config_shutdown();
-             exit(1);
-          }
-        _update_lock();
-        int fd;
-        if ((fd = open("/dev/null", O_RDONLY))>0)
-          {
-             dup2(fd, 0);
-             close(fd);
-          }
-     }
 
    if (!_open_log())
      {
