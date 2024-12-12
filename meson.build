@@ -25,7 +25,6 @@ edje	= dependency('edje',       version: efl_version)
 xcb	= dependency('xcb')
 
 has_pam = get_option('pam')
-has_ck  = get_option('consolekit')
 has_nls = get_option('nls')
 has_logind = get_option('logind')
 
@@ -76,7 +75,6 @@ cfg.set_quoted('VERSION'		, ver)
 cfg.set('SYSTEM_CONFIG_DIR2'		, dir_syscfg)
 cfg.set('ENABLE_NLS', has_nls)
 cfg.set('HAVE_ALLOCA_H', cc.has_header('alloca.h'))
-cfg.set('HAVE_CONSOLEKIT', has_ck)
 cfg.set('HAVE_LOGIND', has_logind)
 cfg.set('HAVE_PAM', has_pam)
 
