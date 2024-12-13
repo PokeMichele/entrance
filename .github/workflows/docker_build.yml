@@ -2,6 +2,7 @@ name: CI
 on:
     push:
         branches: [ main ]
+
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -12,7 +13,10 @@ jobs:
             uses: addnab/docker-run-action@v3
             with:
                 image: wltjr/docker-efl:latest
-                options: -v ${{ github.workspace }}:/tmp/entrance
+                options: |
+                    -e LD_LIBRARY_PATH=/usr/lib64
+                    -e PKG_CONFIG_PATH=/usr/lib64/pkgconfig
+                    -v ${{ github.workspace }}:/tmp/entrance
                 run: |
                     cd /tmp/entrance
                     meson --prefix /usr ${OPTS} . build
