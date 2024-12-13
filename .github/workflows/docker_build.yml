@@ -16,6 +16,7 @@ jobs:
                 options: |
                     -e LD_LIBRARY_PATH=/usr/lib64
                     -e PKG_CONFIG_PATH=/usr/lib64/pkgconfig
+                    -e OPTS="--buildtype=debug -Dpam=true"
                     -v ${{ github.workspace }}:/tmp/entrance
                 run: |
                     cd /tmp/entrance
