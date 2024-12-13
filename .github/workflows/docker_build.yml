@@ -20,5 +20,6 @@ jobs:
                     -v ${{ github.workspace }}:/tmp/entrance
                 run: |
                     cd /tmp/entrance
-                    meson --prefix /usr ${OPTS} . build
+                    sed -i -e "s|libdir'), proj)|libdir'))|" meson.build
+                    meson --prefix /usr --libdir /usr/lib64 ${OPTS} . build
                     ninja -C build
