@@ -6,6 +6,8 @@ if [[ ! -f /.dockerenv ]]; then
  	exit 1
 fi
 
+/etc/init.d/dbus start
+
 export XDG_RUNTIME_DIR="/tmp/ecore"
 
 for d in "${XDG_RUNTIME_DIR}"{,/.ecore} /usr/share/xsessions; do
