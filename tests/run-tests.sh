@@ -21,7 +21,7 @@ Icon=
 Type=Application
 " > /usr/share/xsessions/Xsession.desktop
 
-sed -i -e "s|nobody|travis|" /etc/entrance/entrance.conf
+sed -i -e "s|nobody|ubuntu|" /etc/entrance/entrance.conf
 
 /usr/sbin/entrance
 
@@ -43,7 +43,7 @@ echo "${0} Additional client tests"
 export HOME=/tmp
 /usr/lib/x86_64-linux-gnu/entrance/entrance_client
 /usr/lib/x86_64-linux-gnu/entrance/entrance_client --help
-export HOME=/home/travis
+export HOME=/home/ubuntu
 
 echo "${0} Test autologin"
 useradd -g users -m -p 1234 -s /bin/bash myusername
