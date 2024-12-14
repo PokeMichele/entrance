@@ -25,7 +25,7 @@ Type=Application
 
 sed -i -e "s|nobody|ubuntu|" /etc/entrance/entrance.conf
 
-/usr/sbin/entrance
+/usr/sbin/entrance &>/dev/null & disown
 
 SLEEP=180
 
@@ -52,7 +52,7 @@ useradd -g users -m -p 1234 -s /bin/bash myusername
 sed -i -e "s|autologin\" uchar: 0|autologin\" uchar: 1|" \
 	/etc/entrance/entrance.conf
 
-/usr/sbin/entrance
+/usr/sbin/entrance &>/dev/null & disown
 
 SLEEP=60
 
