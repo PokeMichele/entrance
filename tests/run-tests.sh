@@ -1,9 +1,9 @@
 #!/bin/bash
 # wrapper to run entrance with env vars
 
-if [[ ! -d /home/travis ]]; then
-	echo "Only meant to be run by Travis-CI"
-	exit 1
+if [[ ! -f /.dockerenv ]]; then
+ 	echo "Only meant to be run inside docker container"
+ 	exit 1
 fi
 
 export XDG_RUNTIME_DIR="/tmp/ecore"
