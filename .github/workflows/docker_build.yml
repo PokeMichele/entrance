@@ -19,8 +19,8 @@ jobs:
                     -e SONAR_TOKEN=${{ secrets.SONAR_TOKEN }}
                     -v ${{ github.workspace }}:/tmp/entrance
                 run: |
-                    apt-get update
-                    DEBIAN_FRONTEND=noninteractive apt-get install -y psmisc unzip xorg xserver-xorg-video-dummy
+                    apt-get -qq update
+                    DEBIAN_FRONTEND=noninteractive apt-get -qq install -y psmisc unzip xorg xserver-xorg-video-dummy
                     cd /tmp/
                     curl -JLO -k https://sonarcloud.io/static/cpp/build-wrapper-linux-x86.zip
                     curl -JLO -k https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-7.1.0.4889-linux-x64.zip
