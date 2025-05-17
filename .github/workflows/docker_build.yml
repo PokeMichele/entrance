@@ -16,9 +16,18 @@ jobs:
                 options: |
                     -e LD_LIBRARY_PATH=/usr/lib64
                     -e PKG_CONFIG_PATH=/usr/lib64/pkgconfig
+                    -e SONAR_TOKEN=${{ secrets.SONAR_TOKEN }}
                     -v ${{ github.workspace }}:/tmp/entrance
                 run: |
+                    apt-get update
+                    DEBIAN_FRONTEND=noninteractive apt-get install -y psmisc unzip xorg xserver-xorg-video-dummy
                     cd /tmp/entrance
+                    curl -JLO -k https://sonarcloud.io/static/cpp/build-wrapper-linux-x86.zip
+                    curl -JLO -k https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-7.1.0.4889-linux-x64.zip
+                    unzip -j build-wrapper-linux-x86.zip
+                    unzip sonar-scanner-cli-7.1.0.4889-linux-x64.zip
                     sed -i -e "s|libdir'), proj)|libdir'))|" meson.build
                     meson setup --prefix /usr --libdir /usr/lib64 --buildtype=debug -Dpam=true . build
-                    ninja -C build
+                    build-wrapper-linux-x86-64 --out-dir bw-output  ninja -C build
+                    ninja -C build install
+                    sonar-scanner-7.1.0.4889-linux-x64/bin/sonar-scanner
