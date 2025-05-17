@@ -20,5 +20,5 @@ jobs:
                 run: |
                     cd /tmp/entrance
                     sed -i -e "s|libdir'), proj)|libdir'))|" meson.build
-                    meson setup --prefix /usr --libdir /usr/lib64 --buildtype=debug -Dpam=true. build
+                    meson setup --prefix /usr --libdir /usr/lib64 --buildtype=debug -Dpam=true . build
                     ninja -C build
