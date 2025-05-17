@@ -16,10 +16,9 @@ jobs:
                 options: |
                     -e LD_LIBRARY_PATH=/usr/lib64
                     -e PKG_CONFIG_PATH=/usr/lib64/pkgconfig
-                    -e OPTS="--buildtype=debug -Dpam=true"
                     -v ${{ github.workspace }}:/tmp/entrance
                 run: |
                     cd /tmp/entrance
                     sed -i -e "s|libdir'), proj)|libdir'))|" meson.build
-                    meson --prefix /usr --libdir /usr/lib64 ${OPTS} . build
+                    meson setup --prefix /usr --libdir /usr/lib64 --buildtype=debug -Dpam=true. build
                     ninja -C build
