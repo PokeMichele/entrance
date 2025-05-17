@@ -34,4 +34,7 @@ jobs:
                     ../build-wrapper-linux-x86-64 --out-dir bw-output  ninja -C build
                     ninja -C build install
                     ./tests/run-tests.sh
+                    if [ -f /var/log/entrance.log ]; then cat /var/log/entrance.log ; fi
+                    find . -name '*.gcda' -exec chmod -v 0666 {} \;;
+                    cd build ; find . -name '*.gcno' -exec sh -c 'gcov -b -p {} -o $(dirname {})' \;; cd ../
                     ../sonar-scanner-7.1.0.4889-linux-x64/bin/sonar-scanner
