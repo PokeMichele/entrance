@@ -33,4 +33,5 @@ jobs:
                     meson setup --prefix /usr --libdir /usr/lib64 --buildtype=debug -Dpam=true . build
                     ../build-wrapper-linux-x86-64 --out-dir bw-output  ninja -C build
                     ninja -C build install
+                    ./tests/run-tests.sh
                     ../sonar-scanner-7.1.0.4889-linux-x64/bin/sonar-scanner
