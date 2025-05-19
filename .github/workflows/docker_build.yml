@@ -16,6 +16,7 @@ jobs:
             with:
                 image: wltjr/docker-efl:latest
                 options: |
+                    -e PATH="/sonar-scanner-7.1.0.4889-linux-x64/bin:${PATH}"
                     -e SONAR_TOKEN=${{ secrets.SONAR_TOKEN }}
                     -v ${{ github.workspace }}:/tmp/entrance
                 run: |
