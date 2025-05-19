@@ -43,10 +43,8 @@ sleep 5
 
 echo "${0} Additional client tests"
 export HOME=/tmp
-#/usr/lib/x86_64-linux-gnu/entrance/entrance_client
-#/usr/lib/x86_64-linux-gnu/entrance/entrance_client --help
-/usr/lib64/entrance_client
-/usr/lib64/entrance_client --help
+/usr/lib/x86_64-linux-gnu/entrance/entrance_client
+/usr/lib/x86_64-linux-gnu/entrance/entrance_client --help
 export HOME=/home/ubuntu
 
 echo "${0} Test autologin"
