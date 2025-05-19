@@ -16,8 +16,6 @@ jobs:
             with:
                 image: wltjr/docker-efl:latest
                 options: |
-                    -e LD_LIBRARY_PATH=/usr/lib64
-                    -e PKG_CONFIG_PATH=/usr/lib64/pkgconfig
                     -e SONAR_TOKEN=${{ secrets.SONAR_TOKEN }}
                     -v ${{ github.workspace }}:/tmp/entrance
                 run: |
@@ -29,8 +27,7 @@ jobs:
                     unzip -jq build-wrapper-linux-x86.zip
                     unzip -q sonar-scanner-cli-7.1.0.4889-linux-x64.zip
                     cd /tmp/entrance
-                    sed -i -e "s|libdir'), proj)|libdir'))|" meson.build
-                    meson setup --prefix /usr --libdir /usr/lib64 --buildtype=debug -Dpam=true . build
+                    meson setup --prefix /usr -buildtype=debug -Dpam=true . build
                     ../build-wrapper-linux-x86-64 --out-dir bw-output  ninja -C build
                     ninja -C build install
                     ./tests/run-tests.sh
