@@ -19,17 +19,12 @@ jobs:
                     -e SONAR_TOKEN=${{ secrets.SONAR_TOKEN }}
                     -v ${{ github.workspace }}:/tmp/entrance
                 run: |
-                    cd /tmp/
-                    curl -JLO -k https://sonarcloud.io/static/cpp/build-wrapper-linux-x86.zip
-                    curl -JLO -k https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-7.1.0.4889-linux-x64.zip
-                    unzip -jq build-wrapper-linux-x86.zip
-                    unzip -q sonar-scanner-cli-7.1.0.4889-linux-x64.zip
                     cd /tmp/entrance
                     meson setup --prefix /usr -buildtype=debug -Dpam=true . build
-                    ../build-wrapper-linux-x86-64 --out-dir bw-output  ninja -C build
+                    build-wrapper-linux-x86-64 --out-dir bw-output  ninja -C build
                     ninja -C build install
                     ./tests/run-tests.sh
                     if [ -f /var/log/entrance.log ]; then cat /var/log/entrance.log ; fi
                     find . -name '*.gcda' -exec chmod -v 0666 {} \;;
                     cd build ; find . -name '*.gcno' -exec sh -c 'gcov -b -p {} -o $(dirname {})' \;; cd ../
-                    ../sonar-scanner-7.1.0.4889-linux-x64/bin/sonar-scanner
+                    sonar-scanner
